@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const API_KEY = process.env.API_KEY;
 
 const auth = async (taskName) => {
@@ -7,6 +9,22 @@ const auth = async (taskName) => {
   });
 
   return await response.json()
+}
+
+const getTask = async (taskName) => {
+  const { token } = await auth(taskName);
+
+  const response = await fetch(`https://tasks.aidevs.pl/task/${token}`);
+
+  const task = await response.json();
+
+  console.log('Task', task);
+  fs.writeFileSync(`tasks/${taskName}.json`, JSON.stringify(task, null, 4), 'utf8');
+
+  return {
+    task,
+    sendAnswer: (answer) => sendAnswer(token, answer),
+  };
 }
 
 const sendAnswer = async (token, answer) => {
@@ -20,20 +38,19 @@ const sendAnswer = async (token, answer) => {
   console.log('Result', result);
 }
 
-const getTask = async (taskName) => {
-  const { token } = await auth(taskName);
 
-  const response = await fetch(`https://tasks.aidevs.pl/task/${token}`);
+const solveTask = async (taskName, solution) => {
+  const { task, sendAnswer } = await getTask(taskName);
 
-  const task = await response.json();
+  if (!solution) {
+    console.log('No solution provided');
+    return;
+  }
 
-  console.log('Task', task);
+  const answer = solution(task);
 
-  return {
-    task,
-    sendAnswer: (answer) => sendAnswer(token, answer),
-  };
+  sendAnswer(answer);
 }
 
 
-exports.getTask = getTask;
+exports.solveTask = solveTask;
