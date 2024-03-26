@@ -4,7 +4,16 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "liar": "bun tasks/liar.ts",
+    "blogger": "bun tasks/blogger.ts",
+    "helloapi": "bun tasks/helloapi.ts",
+    "moderation": "bun tasks/moderation.ts"
+  },
   "dependencies": {
+    "bun-types": "^1.0.35",
+    "dotenv": "^16.4.5",
+    "langchain": "^0.1.29",
     "openai": "^4.29.2"
   }
 }
