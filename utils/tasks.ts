@@ -21,7 +21,8 @@ const getTask = async (taskName) => {
   const task = await response.json();
 
   console.log("Task", task);
-  Bun.file("tasks", taskName, JSON.stringify(task, null, 4));
+
+  Bun.file("./tasks/", `${taskName}.json`, JSON.stringify(task, null, 4));
 
   return {
     token,
