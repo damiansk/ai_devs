@@ -77,4 +77,4 @@ const taskForm = async (data = {}, token) => {
   return result;
 };
 
-export { solveTask, taskForm };
+export { getTask, solveTask, taskForm };

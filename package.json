@@ -5,15 +5,17 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "liar": "bun tasks/liar.ts",
-    "blogger": "bun tasks/blogger.ts",
-    "helloapi": "bun tasks/helloapi.ts",
     "embedding": "bun tasks/embedding.ts",
+    "blogger": "bun tasks/blogger.ts",
     "functions": "bun tasks/functions.ts",
-    "rodo": "bun tasks/rodo.ts",
-    "whisper": "bun tasks/whisper.ts",
+    "helloapi": "bun tasks/helloapi.ts",
+    "inprompt": "bun tasks/inprompt.ts",
+    "liar": "bun tasks/liar.ts",
     "moderation": "bun tasks/moderation.ts",
-    "inprompt": "bun tasks/inprompt.ts"
+    "rodo": "bun tasks/rodo.ts",
+    "scraper": "bun tasks/scraper.ts",
+    "whisper": "bun tasks/whisper.ts",
+    "whoami": "bun tasks/whoami.ts"
   },
   "dependencies": {
     "bun-types": "^1.0.35",
