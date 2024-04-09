@@ -14,13 +14,16 @@
     "moderation": "bun tasks/moderation.ts",
     "rodo": "bun tasks/rodo.ts",
     "scraper": "bun tasks/scraper.ts",
+    "search": "bun tasks/search.ts",
     "whisper": "bun tasks/whisper.ts",
     "whoami": "bun tasks/whoami.ts"
   },
   "dependencies": {
+    "@qdrant/js-client-rest": "^1.8.2",
     "bun-types": "^1.0.35",
     "dotenv": "^16.4.5",
     "langchain": "^0.1.29",
-    "openai": "^4.29.2"
+    "openai": "^4.29.2",
+    "uuidv4": "^6.2.13"
   }
 }

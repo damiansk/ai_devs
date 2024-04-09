@@ -1,4 +1,5 @@
 .vscode
 node_modules/
+qdrant_storage/
 .env
 tasks/*.json
