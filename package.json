@@ -10,6 +10,7 @@
     "functions": "bun tasks/functions.ts",
     "helloapi": "bun tasks/helloapi.ts",
     "inprompt": "bun tasks/inprompt.ts",
+    "knowledge": "bun tasks/knowledge.ts",
     "liar": "bun tasks/liar.ts",
     "moderation": "bun tasks/moderation.ts",
     "people": "bun tasks/people.ts",
