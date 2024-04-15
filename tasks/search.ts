@@ -1,7 +1,7 @@
 import { Document } from "langchain/document";
 import { v4 as uuidv4 } from "uuid";
+import { QdrantConnect } from "../utils/qdrant";
 import { solveTask } from "../utils/tasks";
-import { QdrantConnect } from "./search.utils";
 
 const TASK_NAME = "search";
 const ARTICLES_URL = "https://unknow.news/archiwum_aidevs.json";
@@ -17,7 +17,7 @@ const fetchArticles = async () => {
 const solution = async ({ task }) => {
   try {
     const qadrantConnect = new QdrantConnect();
-    await qadrantConnect.createCleanCollection(COLLECTION_NAME);
+    await qadrantConnect.createCollection(COLLECTION_NAME);
     const articles = await fetchArticles();
 
     const documents = articles.map(

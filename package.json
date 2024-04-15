@@ -12,6 +12,7 @@
     "inprompt": "bun tasks/inprompt.ts",
     "liar": "bun tasks/liar.ts",
     "moderation": "bun tasks/moderation.ts",
+    "people": "bun tasks/people.ts",
     "rodo": "bun tasks/rodo.ts",
     "scraper": "bun tasks/scraper.ts",
     "search": "bun tasks/search.ts",

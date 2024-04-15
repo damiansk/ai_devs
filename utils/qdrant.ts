@@ -12,7 +12,13 @@ class QdrantConnect {
     this.embeddings = new OpenAIEmbeddings({ maxConcurrency: 5 });
   }
 
-  async createCleanCollection(collectionName) {
+  async isCollectionEmpty(collectionName) {
+    const collectionInfo = await this.client.getCollection(collectionName);
+
+    return !collectionInfo.points_count;
+  }
+
+  async createCollection(collectionName) {
     const collectionExists = await this.client.collectionExists(collectionName);
 
     if (collectionExists.exists) {
@@ -26,9 +32,9 @@ class QdrantConnect {
   }
 
   async saveDocumentsOnce(collectionName, documents) {
-    const collectionInfo = await this.client.getCollection(collectionName);
+    const isCollectionEmpty = await this.isCollectionEmpty(collectionName);
 
-    if (collectionInfo.points_count) {
+    if (!isCollectionEmpty) {
       return;
     }
 
